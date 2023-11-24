@@ -18,6 +18,7 @@ class Education(models.Model):
 
 class Skill(models.Model):
     skill = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='skill_images/', null=True, blank=True)
     skill_level = models.IntegerField()
 
 class JobExperience(models.Model):
