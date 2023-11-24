@@ -1,12 +1,13 @@
-import './App.css';
-import Home from './components/Home.jsx';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Base from './Base';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Home/>
-    </div>
+    <Router>
+      <Base />
+    </Router>
   );
-}
+};
 
 export default App;

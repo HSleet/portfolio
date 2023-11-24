@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Header from './Common/Header';
 import About from './About';
-import HamMenu from './Common/HamMenu';
 import './Home.css';
 
-const Home = () => {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+const Home = ({isLightTheme}) => {
+
   const [typedIntroduction, setTypedIntroduction] = useState('');
+  const [isAtTop, setIsAtTop] = useState(true);
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -23,25 +22,51 @@ const Home = () => {
     }, 50);
   }, []);
 
-  const handleToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      if (window.pageYOffset < window.innerHeight / 2) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollPosition);
+
+    return () => {
+      window.removeEventListener('scroll', checkScrollPosition);
+    };
+  }, []);
 
   const handleScrollDown = () => {
     const windowHeight = window.innerHeight;
+    const scrollPosition = scrollRef.current.offsetTop + windowHeight;
+    const maxScrollPosition = document.documentElement.scrollHeight - windowHeight;
+    const targetScrollPosition = Math.min(scrollPosition, maxScrollPosition);
     window.scrollTo({
-      top: scrollRef.current.offsetTop + windowHeight,
+      top: targetScrollPosition,
       behavior: 'smooth',
     });
   };
 
+  const handleScroll = () => {
+    const scrollPosition = window.pageYOffset;
+    if (scrollPosition < window.innerHeight / 2) {
+      handleScrollDown();
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  
   return (
-    <div className={`${isLightTheme ? 'text-light-text' : 'text-dark-text'}`} style={{ transition: 'background-color 0.5s ease' }}>
-      <HamMenu isLightTheme={isLightTheme} />
-      <Header isLightTheme={isLightTheme} handleToggle={handleToggle} />
+    <div style={{ transition: 'background-color 0.5s ease' }}>
       <div className='body-container flex flex-col justify-center items-center'>
         <div className={`justify-center items-center description-section  ${isLightTheme ? 'bg-light-body-background1' : 'bg-dark-body-background1'} px-8`}>
-          <h1 className={`text-5xl title font-bold ${isLightTheme ? 'text-light-body-title1' : 'text-dark-body-title1'}`} style={{ transition: 'color 0.5s ease' }}>
+          <h1 className={`text-5xl title font-bold text-center ${isLightTheme ? 'text-light-body-title1' : 'text-dark-body-title1'}`} style={{ transition: 'color 0.5s ease' }}>
             Hi! I'm <span> {typedIntroduction} </span>
           </h1>
           <h2 className={`subtitle ${isLightTheme ? 'text-light-body-text3' : 'text-dark-body-title1'}`} style={{ transition: 'color 0.5s ease' }}>
@@ -55,8 +80,8 @@ const Home = () => {
           <About isLightTheme={isLightTheme} />
         </div>
       </div>
-      <button className={`scroll-button ${isLightTheme? 'bg-dark-header-details' : 'bg-light-header-details'}`} onClick={handleScrollDown}>
-        <i class='fa-solid fa-chevron-down' style={{color: isLightTheme? '#312450': '#9A7197'}}></i>
+      <button className={`scroll-button ${isLightTheme? 'bg-dark-header-details' : 'bg-light-header-details'}`} onClick={handleScroll}>
+        <i class={`fa-solid chevron ${isAtTop ? 'fa-chevron-down' : 'fa-chevron-up'}`} style={{color: isLightTheme? '#312450': '#9A7197'}}></i>
       </button>
     </div>
   );

@@ -1,61 +1,62 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HamMenu.css';
 
-const HamMenu = ({isLightTheme, isMenuOpen}) => {
+const HamMenu = ({isLightTheme, isMenuOpen, toggleMenu}) => {
 
   return (
-    <div className={`ham-menu ${isLightTheme ? 'bg-light-header-background':''}`} style={{left: isMenuOpen ? '0px' : '-320px'}}>
-      <div className='menu-item'>
-        <a href="">
+    <div className={`ham-menu ${isLightTheme ? 'bg-light-header-background':'bg-dark-header-background'}`} style={{left: isMenuOpen ? '0px' : '-320px'}}>
+      <Link to="/" onClick={toggleMenu}>
+        <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class="fa-solid fa-house fa-sm"></i>
+              <i class={`fa-solid fa-house fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
-              <p>Home</p>
+              <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>Home</p>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </Link>
       <div className="ham-menu__line"></div>
-      <div className='menu-item'>
-        <a href="">
+      <Link to="/projects"  onClick={toggleMenu}>
+        <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class="fa-solid fa-briefcase fa-sm"></i>
+              <i class={`fa-solid fa-briefcase fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
-              <p>Projects</p>
+              <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>Projects</p>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </Link>
       <div className="ham-menu__line"></div>
-      <div className='menu-item'>
-        <a href="">
+      <Link to="/about"  onClick={toggleMenu}>
+        <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class="fa-solid fa-user fa-sm"></i>
+              <i class={`fa-solid fa-user fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
-              <p>About</p>
+              <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>About</p>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </Link>
       <div className="ham-menu__line"></div>
-      <div className='menu-item'>
-        <a href="">
+      <Link to="/contact"  onClick={toggleMenu}>
+        <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class="fa-solid fa-user fa-sm"></i>
+              <i class={`fa-solid fa-phone fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
-              <p>About</p>
+              <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>Contact</p>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };
