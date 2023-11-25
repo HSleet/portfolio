@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator
 
 class User(models.Model):
     email = models.EmailField(unique=True)
@@ -19,7 +20,7 @@ class Education(models.Model):
 class Skill(models.Model):
     skill = models.CharField(max_length=200)
     image = models.ImageField(upload_to='skill_images/', null=True, blank=True)
-    skill_level = models.IntegerField()
+    skill_level = models.IntegerField(default=1, validators=[MaxValueValidator(100)])
 
 class JobExperience(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
