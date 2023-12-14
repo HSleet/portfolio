@@ -1,0 +1,67 @@
+.about-me {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 55px;
+}
+
+.about-subtitle { 
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    opacity: .8;
+}
+/* Reset margins and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.bio-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 18px 0 18px;
+}
+
+.bio-paragraph {
+    padding: 18px 0px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0 auto;
+    opacity: .8;
+}
+
+.work-experience, .education {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0;
+    height: 100%;
+    padding: 0 18px 18px 18px;
+}
+
+.exp-list-element {
+    width: 100%;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 12px 55px;
+    margin: 4px 0;
+}
+
+.exp-list {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.exp-list-element-company, .exp-list-element-period {
+    opacity: 0.75;
+}

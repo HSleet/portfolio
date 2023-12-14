@@ -7,7 +7,7 @@ import './Header.css';
 const Header = ({ isLightTheme, toggleTheme, toggleMenu}) => {
 
     return (
-        <div className={`header w-full drop-shadow-md ${isLightTheme ? 'bg-light-header-background' : 'bg-dark-header-background'}`} style={{ transition: 'background-color 0.5s ease', zIndex: 10 }}>
+        <div className={`header w-full drop-shadow-md ${isLightTheme ? 'bg-light-header-background' : 'bg-dark-header-background'}`} style={{ transition: 'background-color 0.5s ease' }}>
             <div className="space-x-16 flex h-full">
                 <div className={`flex w-1/2`}>
                     <MobileNavMenuButton isLightTheme={isLightTheme} handleMenuToggle={toggleMenu}/>

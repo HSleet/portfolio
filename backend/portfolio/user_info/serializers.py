@@ -4,7 +4,7 @@ from .models import User, Education, JobExperience, Skill, Project, ProjectImage
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
-        fields = ['id', 'title', 'institution']
+        fields = ['id', 'title', 'institution', 'graduation_date']
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,7 +16,8 @@ class JobExperienceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = JobExperience
-        fields = ['id', 'title', 'description', 'skills', 'start_date', 'end_date']
+        fields = ['id', 'title', 'company', 'description', 'skills', 'start_date', 'end_date']
+        ordering = ['-start_date']
 
 class ProjectImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,13 +30,13 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ['id', 'skills', 'short_description', 'long_description', 'url', 'github_repo', 'images']
+        fields = ['id', 'project_title', 'skills', 'short_description', 'long_description', 'url', 'github_repo', 'images']
 
 class UserSerializer(serializers.ModelSerializer):
-    education = EducationSerializer(many=True, read_only=True)
-    job_experience = JobExperienceSerializer(many=True, read_only=True)
+    education = EducationSerializer(source='education_set', many=True, read_only=True)
+    job_experience = JobExperienceSerializer(source='jobexperience_set', many=True, read_only=True)
     projects = ProjectSerializer(source='project_set', many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'email', 'phone_number', 'linkedin', 'github', 'website', 'small_bio', 'extended_bio', 'image', 'education', 'job_experience', 'projects']
+        fields = ['id', 'full_name', 'email', 'phone_number', 'linkedin', 'github', 'website', 'small_bio', 'extended_bio', 'image', 'education', 'job_experience', 'projects', 'resume']

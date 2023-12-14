@@ -1,0 +1,81 @@
+.contact {
+    padding: 8px;
+    padding-top: 55px;
+    height: 100vh;
+}
+
+.contact-container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-subtitle {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    opacity: .45;
+}
+
+.send-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.subject,.email,.message-body{
+    width: 80%;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+.message-body {
+    height: 200px;
+}
+
+.message-body::placeholder,.subject::placeholder,.email::placeholder {
+    opacity: .45;
+}
+
+.message-body:focus,.subject:focus,.email:focus {
+    outline: solid 1px #ffb6c1;
+}
+
+.contact-form-btn {
+    width: 60%;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.socials {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ const HamMenu = ({isLightTheme, isMenuOpen, toggleMenu}) => {
         <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class={`fa-solid fa-house fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
+              <i className={`fa-solid fa-house fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
               <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>Home</p>
@@ -23,7 +23,7 @@ const HamMenu = ({isLightTheme, isMenuOpen, toggleMenu}) => {
         <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class={`fa-solid fa-briefcase fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
+              <i className={`fa-solid fa-briefcase fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
               <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>Projects</p>
@@ -36,7 +36,7 @@ const HamMenu = ({isLightTheme, isMenuOpen, toggleMenu}) => {
         <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class={`fa-solid fa-user fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
+              <i className={`fa-solid fa-user fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
               <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>About</p>
@@ -49,7 +49,7 @@ const HamMenu = ({isLightTheme, isMenuOpen, toggleMenu}) => {
         <div className='menu-item'>
           <div className='flex'>
             <div>
-              <i class={`fa-solid fa-phone fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
+              <i className={`fa-solid fa-phone fa-sm ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}></i>
             </div>
             <div>
               <p className={`px-2 ${isLightTheme ? 'text-light-body-background1': 'text-dark-body-title1'}`}>Contact</p>
