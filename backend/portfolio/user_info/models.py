@@ -13,8 +13,8 @@ class User(models.Model):
     extended_bio = models.TextField()
     interests = models.TextField(blank=True)
     hobbies = models.TextField(blank=True)
-    image = models.ImageField(upload_to='static/profile_images/', null=True, blank=True)
-    resume = models.FileField(upload_to='static/resumes/', null=True, blank=True)
+    image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
+    resume = models.FileField(upload_to='resumes/', null=True, blank=True)
 
 class Education(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -24,7 +24,7 @@ class Education(models.Model):
 
 class Skill(models.Model):
     skill = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='static/skill_images/', null=True, blank=True)
+    image = models.ImageField(upload_to='skill_images/', null=True, blank=True)
     skill_level = models.IntegerField(default=1, validators=[MaxValueValidator(100)])
 
 class JobExperience(models.Model):
@@ -47,4 +47,4 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    image = models.FileField(upload_to='static/project_images/')
+    image = models.FileField(upload_to='project_images/')

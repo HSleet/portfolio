@@ -36,6 +36,7 @@ const ProjectCard = ({isLightTheme, project}) => {
                         {projectSkills}
                     </div>
                 </div>
+                {/* TODO: disable buttons when no url is provided */}
                 <div className='project-links'>
                     <div className={`button-container ${isLightTheme ? 'bg-light-body-button': 'bg-dark-body-button'}`}>
                         <a href={project.github_repo} className={`project-link font-sans text-sm ${isLightTheme ? 'text-light-body-text3' : 'text-dark-body-text3'}`}>
