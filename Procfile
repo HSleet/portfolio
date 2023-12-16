@@ -1,1 +1,1 @@
-web: gunicorn backend.portfolio.portfolio.wsgi --log-file - && npm start --prefix frontend/frontend
+web: gunicorn portfolio.wsgi:application --log-file - && npm start --prefix ../../frontend/frontend
