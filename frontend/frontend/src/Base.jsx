@@ -4,7 +4,7 @@ import HamMenu from "./components/Common/HamMenu";
 import { useRoutes } from "react-router-dom";
 import Home from "./components/Homepage/Home";
 import ErrorPage from "./components/Common/ErrorPage";
-import Projects from "./components/projects/Projects";
+import Projects from "./components/projects/Projects.jsx";
 import AboutMe from "./components/About/AboutMe";
 import Contact from "./components/Contact/Contact";
 import axios from 'axios';
