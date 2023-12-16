@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Common/Header";
 import HamMenu from "./components/Common/HamMenu";
+import ErrorPage from "./components/Common/ErrorPage";
 import { useRoutes } from "react-router-dom";
 import Home from "./components/Homepage/Home";
-import ErrorPage from "./components/Common/ErrorPage";
 import Projects from "./components/Projects/Projects";
 import AboutMe from "./components/About/AboutMe";
 import Contact from "./components/Contact/Contact";
