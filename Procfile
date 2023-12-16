@@ -1,1 +1,1 @@
-web: gunicorn backend.portfolio.wsgi --log-file - && npm start --prefix frontend/myreactapp
+web: gunicorn backend.portfolio.portfolio.wsgi --log-file - && npm start --prefix frontend/myreactapp
