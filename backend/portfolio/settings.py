@@ -117,7 +117,7 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR.parent / 'frontend' / 'frontend' / 'build',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
