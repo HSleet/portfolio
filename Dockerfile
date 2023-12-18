@@ -21,10 +21,17 @@ WORKDIR /app
 ARG DJANGO_SECRET_KEY
 ARG DEBUG
 ARG DATABASE_URL
+ARG AWSPersonalAdminKey
+ARG AWSPersonalAdminSecret
+ARG AWSPortfolioBucket
+
 # Define environment variables
 ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
 ENV DEBUG=$DEBUG
 ENV DATABASE_URL=$DATABASE_URL
+ENV AWSPersonalAdminKey=$AWSPersonalAdminKey
+ENV AWSPersonalAdminSecret=$AWSPersonalAdminSecret
+ENV AWSPortfolioBucket=$AWSPortfolioBucket
 
 # Copy the cloned repository
 COPY --from=build /app .
