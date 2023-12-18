@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware', # new
+    'whitenoise.middleware.WhiteNoiseMiddleware', # newi
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -117,10 +118,11 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
+    BASE_DIR.parent / 'frontend' / 'frontend' / 'build' / 'static',
     BASE_DIR.parent / 'frontend' / 'frontend' / 'build',
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
