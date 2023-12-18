@@ -19,7 +19,7 @@ const Base = () => {
     useEffect(() => {
         if (userInfo.length === 0) {
             // TODO: Change this to the actual API endpoint
-            axios.get('http://34.121.140.41:8000/api/users/')
+            axios.get('http://130.211.196.105:8000/api/users/')
                 .then(response => {
                     const userData = response.data[0];
                     setUserInfo(userData);
