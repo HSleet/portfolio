@@ -118,11 +118,10 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    # BASE_DIR.parent / 'frontend' / 'frontend' / 'build' / 'static',
-    BASE_DIR.parent / 'frontend' / 'frontend' / 'build',
+    BASE_DIR.parent / 'frontend' / 'frontend' / 'build' / 'static',
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -143,6 +142,6 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
-
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+STATIC_URL = '/static/'
 AWS_DEFAULT_ACL = 'public-read'
