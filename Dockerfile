@@ -17,6 +17,13 @@ RUN npm run build
 FROM python:3.12
 WORKDIR /app
 
+# Define build arguments
+ARG DJANGO_SECRET_KEY
+ARG DEBUG
+# Define environment variables
+ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+ENV DEBUG=$DEBUG
+
 # Copy the cloned repository
 COPY --from=build /app .
 
@@ -33,6 +40,8 @@ RUN mkdir -p staticfiles
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
+
+RUN which gunicorn || echo gunicorn not found
 
 # Expose the port the app runs in
 EXPOSE 8000
