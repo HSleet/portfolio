@@ -1,0 +1,28 @@
+# Ignore .env files
+.env
+
+# Ignore .vscode directory
+.vscode
+
+# Ignore Python compiled files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyc.so
+
+# Ignore Django migrations
+*/migrations/*
+
+# Ignore all log files
+*.log
+
+# Ignore Node.js modules
+node_modules
+
+# Ignore React build output
+build
+
+# Ignore all .git files
+.git
+.gitignore

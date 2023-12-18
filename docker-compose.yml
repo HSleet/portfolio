@@ -2,18 +2,18 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    image: hsleet/portfolio-web
     command: ["gunicorn", "portfolio.wsgi:application", "--bind", "0.0.0.0:8000"]
     volumes:
       - .:/code
       - static_volume:/vol/static
     expose:
       - 8000
+    env_file:
+      - .env
 
   nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile.nginx
+    image: hsleet/portfolio-nginx
     volumes:
       - static_volume:/vol/static
     ports:
@@ -21,4 +21,3 @@ services:
 
 volumes:
   static_volume:
-  
