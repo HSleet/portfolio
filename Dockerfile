@@ -2,11 +2,8 @@
 FROM node:18.4.0 AS build
 WORKDIR /app
 
-# Install git
-RUN apt-get update && apt-get install -y git
-
-# Clone the repository
-RUN git clone https://github.com/HSleet/portfolio.git .
+# Copy the project files from the host
+COPY . .
 
 # Install frontend dependencies and build
 WORKDIR /app/frontend/frontend
@@ -33,7 +30,7 @@ ENV AWSPersonalAdminKey=$AWSPersonalAdminKey
 ENV AWSPersonalAdminSecret=$AWSPersonalAdminSecret
 ENV AWSPortfolioBucket=$AWSPortfolioBucket
 
-# Copy the cloned repository
+# Copy the project files from the build stage
 COPY --from=build /app .
 
 # Install backend dependencies
