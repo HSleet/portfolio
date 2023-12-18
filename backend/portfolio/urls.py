@@ -28,7 +28,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('user_info.urls')),
-    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
 
 if settings.DEBUG:
@@ -37,3 +36,5 @@ if settings.DEBUG:
     urlpatterns += static('/skill_images/', document_root=os.path.join(settings.STATIC_ROOT, 'skill_images'))
 else: 
     urlpatterns += staticfiles_urlpatterns()
+
+urlpatterns += [re_path(r'^.*$', TemplateView.as_view(template_name='index.html'))]

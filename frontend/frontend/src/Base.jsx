@@ -18,7 +18,8 @@ const Base = () => {
 
     useEffect(() => {
         if (userInfo.length === 0) {
-            axios.get('http://127.0.0.1:8000/api/users/')
+            // TODO: Change this to the actual API endpoint
+            axios.get('http://34.121.140.41:8000/api/users/')
                 .then(response => {
                     const userData = response.data[0];
                     setUserInfo(userData);
@@ -61,10 +62,7 @@ const Base = () => {
             path: "*",
             element: <ErrorPage isLightTheme={isLightTheme}/>
         },
-        {
-            path: '/admin/*',
-            element: <Navigate to="/admin" replace={true} />,
-        },
+
         
     ]);
     

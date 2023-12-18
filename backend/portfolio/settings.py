@@ -130,8 +130,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://34.121.140.41:8000/",
+    "http://10.128.0.4:8000/"
+
 ]
+
+# TODO: serve over https and manage ssl cert
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') # bypass TODO: remove for production
 
 # TODO: Change this to use environment variables
 AWS_ACCESS_KEY_ID = os.environ.get('AWSPersonalAdminKey')
