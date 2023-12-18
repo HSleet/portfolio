@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Common/Header";
 import HamMenu from "./components/Common/HamMenu";
 import ErrorPage from "./components/Common/ErrorPage";
-import { useRoutes } from "react-router-dom";
+import { useRoutes, Navigate} from "react-router-dom";
 import Home from "./components/Homepage/Home";
 import Projects from "./components/Projects/Projects";
 import AboutMe from "./components/About/AboutMe";
@@ -60,6 +60,10 @@ const Base = () => {
         {
             path: "*",
             element: <ErrorPage isLightTheme={isLightTheme}/>
+        },
+        {
+            path: '/admin/*',
+            element: <Navigate to="/admin" replace={true} />,
         },
         
     ]);
