@@ -20,9 +20,11 @@ WORKDIR /app
 # Define build arguments
 ARG DJANGO_SECRET_KEY
 ARG DEBUG
+ARG DATABASE_URL
 # Define environment variables
 ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
 ENV DEBUG=$DEBUG
+ENV DATABASE_URL=$DATABASE_URL
 
 # Copy the cloned repository
 COPY --from=build /app .
