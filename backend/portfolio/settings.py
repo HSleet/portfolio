@@ -118,7 +118,6 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    BASE_DIR.parent / 'frontend' / 'frontend' / 'build' / 'static',
     BASE_DIR.parent / 'frontend' / 'frontend' / 'build',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
