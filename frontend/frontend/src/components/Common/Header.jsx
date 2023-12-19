@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import ThemeToggle from './themeToggle';
 import MobileNavMenuButton from './HamMenuButton';
 import './Header.css';
