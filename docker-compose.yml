@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     image: hsleet/portfolio-web
-    command: ["gunicorn", "portfolio.wsgi:application", "--bind", "0.0.0.0:8000"]
+    command: ["sh", "-c", "python manage.py collectstatic --noinput && gunicorn portfolio.wsgi:application --bind 0.0.0.0:8000"]
     volumes:
       - .:/code
       - static_volume:/vol/static
@@ -15,9 +15,11 @@ services:
   nginx:
     image: hsleet/portfolio-nginx
     volumes:
+      - /etc/nginx/ssl:/etc/nginx/ssl
       - static_volume:/vol/static
     ports:
       - "80:80"
+      - "443:443"
 
 volumes:
   static_volume:

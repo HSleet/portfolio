@@ -121,10 +121,11 @@ STATICFILES_DIRS = [
     BASE_DIR.parent / 'frontend' / 'frontend' / 'build' / 'static',
 ]
 
-if DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-else:
-    STATIC_ROOT = '/vol/static'
+# TODO: check this
+# if DEBUG:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# else:
+STATIC_ROOT = '/vol/static'
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -138,14 +139,26 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "http://34.121.140.41:8000/",
-    "http://10.128.0.4:8000/"
-
+    "http://10.128.0.6:8000",
+    "http://10.128.0.6:80",
+    "http://130.211.196.105:8000",
+    "http://130.211.196.105:80",
+    "http://portfolio.hsleet.com",
+    "https://localhost:3000",
+    "https://127.0.0.1:3000",
+    "https://localhost:8000",
+    "https://127.0.0.1:8000",
+    "https://10.128.0.6:8000",
+    "https://10.128.0.6:80",
+    "https://130.211.196.105:8000",
+    "https://130.211.196.105:80",
+    "https://portfolio.hsleet.com",
 ]
 
-# TODO: serve over https and manage ssl cert
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') # bypass TODO: remove for production
+# Set the secure flag on session cookies
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # TODO: Change this to use environment variables
 AWS_ACCESS_KEY_ID = os.environ.get('AWSPersonalAdminKey')

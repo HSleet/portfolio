@@ -41,13 +41,8 @@ RUN pip install -r requirements.txt
 # Copy the built frontend from the build stage
 COPY --from=build /app/frontend/frontend/build /app/frontend/frontend/build
 
-# Create the staticfiles directory
-RUN mkdir -p staticfiles
-
 # Collect static files
 RUN python manage.py collectstatic --noinput
-
-RUN which gunicorn || echo gunicorn not found
 
 # Expose the port the app runs in
 EXPOSE 8000
