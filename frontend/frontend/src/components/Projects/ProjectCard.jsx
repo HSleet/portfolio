@@ -36,22 +36,25 @@ const ProjectCard = ({isLightTheme, project}) => {
                         {projectSkills}
                     </div>
                 </div>
-                {/* TODO: disable buttons when no url is provided */}
                 <div className='project-links'>
-                    <div className={`button-container ${isLightTheme ? 'bg-light-body-button': 'bg-dark-body-button'}`}>
-                        <a href={project.github_repo} className={`project-link font-sans text-sm ${isLightTheme ? 'text-light-body-text3' : 'text-dark-body-text3'}`}>
-                            <button className={`nav-button font-sans ${isLightTheme ? 'text-light-body-text4' : 'text-dark-body-text1'}`} style={{ transition: 'background-color 0.5s ease, color 0.5s ease' }}>
-                                Github repo
-                            </button>
-                        </a>
-                    </div>
-                    <div className={`button-container ${isLightTheme ? 'bg-light-body-button': 'bg-dark-body-button'}`}>
-                        <a href={project.url} className={`project-link font-sans text-sm ${isLightTheme ? 'text-light-body-text3' : 'text-dark-body-text3'}`}>
-                            <button className={`nav-button font-sans ${isLightTheme ? 'text-light-body-text4' : 'text-dark-body-text1'}`} style={{ transition: 'background-color 0.5s ease, color 0.5s ease' }}>
-                                Live demo
-                            </button>
-                        </a>
-                    </div>
+                    {project.github_repo && (
+                        <div className={`button-container ${isLightTheme ? 'bg-light-body-button': 'bg-dark-body-button'}`}>
+                            <a href={project.github_repo} className={`project-link font-sans text-sm ${isLightTheme ? 'text-light-body-text3' : 'text-dark-body-text3'}`}>
+                                <button className={`nav-button font-sans ${isLightTheme ? 'text-light-body-text4' : 'text-dark-body-text1'}`} style={{ transition: 'background-color 0.5s ease, color 0.5s ease' }}>
+                                    Github repo
+                                </button>
+                            </a>
+                        </div>
+                    )}
+                    {project.url && (
+                        <div className={`button-container ${isLightTheme ? 'bg-light-body-button': 'bg-dark-body-button'}`}>
+                            <a href={project.url} className={`project-link font-sans text-sm ${isLightTheme ? 'text-light-body-text3' : 'text-dark-body-text3'}`}>
+                                <button className={`nav-button font-sans ${isLightTheme ? 'text-light-body-text4' : 'text-dark-body-text1'}`} style={{ transition: 'background-color 0.5s ease, color 0.5s ease' }}>
+                                    Live demo
+                                </button>
+                            </a>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
