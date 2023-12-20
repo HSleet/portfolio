@@ -15,22 +15,24 @@ const Base = () => {
     const [isLightTheme, setIsLightTheme] = useState(true);
     const [userInfo, setUserInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isEmptyResponse, setIsEmptyResponse] = useState(false);
 
     useEffect(() => {
         if (userInfo.length === 0) {
-            // TODO: Change this to the actual API endpoint
             axios.get('https://portfolio.hsleet.com/api/users/')
                 .then(response => {
-                    const userData = response.data[0];
-                    setUserInfo(userData);
-                    setIsLoading(false);
-                })
-                .catch(error => {
-                    console.error('There was an error!', error);
+                    if (response.data.length === 0) {
+                        setIsEmptyResponse(true);
+                        console.log('No data available');
+                    } else {
+                        const userData = response.data[0];
+                        setUserInfo(userData);
+                    }
                     setIsLoading(false);
                 });
         }
     }, [userInfo]);
+
 
 
     const toggleMenu = () => {
@@ -83,6 +85,21 @@ const Base = () => {
         )
     }
 
+    if (isEmptyResponse) {
+        return (
+            <div>
+                <Header
+                    isLightTheme={isLightTheme}
+                    toggleMenu={toggleMenu}
+                    toggleTheme={toggleTheme}
+                />
+                <HamMenu isLightTheme={isLightTheme} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+                <div className="base__content">
+                    <div className="empty-content"></div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className={`base ${isLightTheme ? "bg-light-background" : ""}`}>
