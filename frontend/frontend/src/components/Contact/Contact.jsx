@@ -6,13 +6,15 @@ const Contact = ({ isLightTheme, userInfo }) => {
     const [subject, setSubject] = useState('');
     const [body, setBody] = useState('');
     const [email, setEmail] = useState('');
+    const csrftoken = document.cookie.split('; ').find(row => row.startsWith('csrftoken')).split('=')[1];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            axios.defaults.headers.post['x-csrftoken'] = csrftoken;
             // Send post request to the backend
-            await axios.post('/api/send-message', { subject, email, body });
+            await axios.post('/api/send-message/', { subject, email, body });
 
             // Reset form fields
             setSubject('');
