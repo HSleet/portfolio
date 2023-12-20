@@ -32,6 +32,7 @@ ADMIN_ENABLED = True
 
 INSTALLED_APPS = [
     'user_info', # new
+    'user_messaging',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,10 +123,10 @@ STATICFILES_DIRS = [
 ]
 
 # TODO: check this
-# if DEBUG:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# else:
-STATIC_ROOT = '/vol/static'
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+    STATIC_ROOT = '/vol/static'
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -154,6 +155,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://130.211.196.105:80",
     "https://portfolio.hsleet.com",
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 # Set the secure flag on session cookies
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
