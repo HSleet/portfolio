@@ -1,12 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Message
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from .serializers import MessageSerializer
 from django.core.mail import send_mail
-from rest_framework.authentication import BasicAuthentication
-from rest_framework.permissions import IsAuthenticated
+
 
 class MessageView(APIView):
     def post(self, request, format=None):
