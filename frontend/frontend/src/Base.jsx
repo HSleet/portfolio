@@ -20,7 +20,7 @@ const Base = () => {
     useEffect(() => {
         if (userInfo.length === 0) {
             const apiUrl = process.env.REACT_APP_DEBUG === "True" ? "http://localhost:8000/api/users/" : "https://portfolio.hsleet.com/api/users/";
-            axios.get(apiUrl)
+            axios.get(apiUrl, { withCredentials: true })
                 .then(response => {
                     if (response.data.length === 0) {
                         setIsEmptyResponse(true);

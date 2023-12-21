@@ -122,7 +122,6 @@ STATICFILES_DIRS = [
     BASE_DIR.parent / 'frontend' / 'frontend' / 'build' / 'static',
 ]
 
-# TODO: check this
 if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 else:
@@ -161,8 +160,8 @@ CORS_ALLOW_CREDENTIALS = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
 
-# TODO: Change this to use environment variables
 AWS_ACCESS_KEY_ID = os.environ.get('AWSPersonalAdminKey')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWSPersonalAdminSecret')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWSPortfolioBucket')
