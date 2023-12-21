@@ -11,7 +11,7 @@
     text-align: center;
     font-size: 40px;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 18px;
     margin-bottom: 10px
 }
   
@@ -34,7 +34,7 @@
 
 .empty-message {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 32px;
     opacity: 0.70;
 }
 
