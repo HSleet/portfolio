@@ -34,7 +34,7 @@
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none
+  user-select: none;
 }
 
 .scroll-button:hover {
@@ -46,4 +46,17 @@
   font-size: 25px;
   margin-top: 10px;
   transition: 'all 0.5s ease';
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -80,7 +80,7 @@ const Home = ({isLightTheme, shortBio}) => {
           <About isLightTheme={isLightTheme} shortBio={shortBio}/>
         </div>
       </div>
-      <button className={`scroll-button ${isLightTheme? 'bg-dark-header-details' : 'bg-light-header-details'}`} onClick={handleScroll}>
+      <button className={`scroll-button ${isAtTop ? 'animate-pulse' : ''} ${isLightTheme? 'bg-dark-header-details' : 'bg-light-header-details'}`} onClick={handleScroll}>
         <i className={`fa-solid chevron ${isAtTop ? 'fa-chevron-down' : 'fa-chevron-up'}`} style={{color: isLightTheme? '#312450': '#9A7197'}}></i>
       </button>
     </div>

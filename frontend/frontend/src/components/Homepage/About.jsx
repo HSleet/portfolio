@@ -6,7 +6,7 @@ import './About.css';
 const About = ({isLightTheme, shortBio}) => {
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col max-w-md h-full justify-center'>
             <p className={`pt-20 pb-10 text-left font-sans text-lg ${isLightTheme ? 'text-light-body-text2' : 'text-dark-body-text1'} antialiased`} style={{ transition: 'color 0.5s ease' }}>{shortBio}</p>
             <div className='nav-buttons flex flex-col sm:flex-row justify-center items-center'>
                 <div className={`button-container ${isLightTheme ? 'bg-light-body-button': 'bg-dark-body-button'}`}>
