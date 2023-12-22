@@ -1,6 +1,6 @@
 import React from 'react';
-import './Projects.css';
 import ProjectCard from './ProjectCard';
+import './Projects.css';
 
 const Projects = ({ isLightTheme, projects }) => {
   let projectCards;
@@ -10,12 +10,11 @@ const Projects = ({ isLightTheme, projects }) => {
     ));
   } else {
     projectCards = (
-      <div className='projects-loading'>
+      <div className='projects-loading max-w-lg'>
         <h1 className={`empty-message font-sans text-xl ${isLightTheme ? 'text-light-body-text1' : 'text-dark-body-text1'}`}>Looks like we're starting with a blank canvas here! I'm eager to fill this space with exciting projects and accomplishments. Stay tuned for updates on my latest ventures and contributions. In the meantime, feel free to explore other sections of my portfolio. Cheers to future endeavors!</h1>
       </div>
     );
   } 
-  // console.log(projectCards);
 
   return (
     <div className={`projects-container ${isLightTheme ? 'bg-light-body-background1': "bg-dark-body-background1"}`}>
