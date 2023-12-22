@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .ham-menu {
   position: fixed;
   height: 100%;
@@ -53,4 +57,30 @@
 .line {
   width: 25px;
   height: 2px;
+}
+
+.nav-menu-container-md {
+  display: none;
+}
+
+
+@media (min-width: 768px) {
+  .ham-menu {
+    opacity: 1;
+  }
+
+  .mobile-nav-menu-button {
+    @apply hidden;
+  } 
+
+  .nav-menu-container-md {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    height: 100%;
+    padding: 5px;
+  }
 }
