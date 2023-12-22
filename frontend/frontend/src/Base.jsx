@@ -103,14 +103,14 @@ const Base = () => {
     }
 
     return (
-        <div className={`base ${isLightTheme ? "bg-light-background" : ""}`}>
-        <Header
-            isLightTheme={isLightTheme}
-            toggleMenu={toggleMenu}
-            toggleTheme={toggleTheme}
-        />
-        <HamMenu isLightTheme={isLightTheme} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-        <div className="base__content">{routes}</div>
+        <div className={`base md:bg-opacity-80 ${isLightTheme ? "bg-light-body-background1" : "bg-dark-body-background1"}`}>
+            <Header
+                isLightTheme={isLightTheme}
+                toggleMenu={toggleMenu}
+                toggleTheme={toggleTheme}
+            />
+            <HamMenu isLightTheme={isLightTheme} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+            <div className="base__content">{routes}</div>
         </div>
     );
     }
