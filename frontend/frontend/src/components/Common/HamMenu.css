@@ -67,6 +67,7 @@
 @media (min-width: 768px) {
   .ham-menu {
     opacity: 1;
+    @apply hidden;
   }
 
   .mobile-nav-menu-button {
