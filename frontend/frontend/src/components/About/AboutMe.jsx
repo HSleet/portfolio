@@ -26,16 +26,20 @@ const AboutMe = ({isLightTheme, userInfo}) => {
             ))}
         </div>
       </div>
-      <div className={`work-experience bg-opacity-90 ${isLightTheme? 'bg-light-body-background2' : 'bg-dark-body-background2'}`}>
-        <h1 className={`work-experience-title ${isLightTheme? 'text-light-body-title2' : 'text-dark-body-title2'}`}>Work Experience</h1>
-        <div className='work-experience-container'>
-          {expList}
+      <div className='experiences'>
+        <div className={`work-experience bg-opacity-90 ${isLightTheme? 'bg-light-body-background2' : 'bg-dark-body-background2'}`}>
+          <i className={`fas fa-briefcase text-center text-4xl ${isLightTheme ? 'text-light-body-title2' : 'text-dark-body-title2'}`}></i>
+          <h1 className={`work-experience-title ${isLightTheme? 'text-light-body-title2' : 'text-dark-body-title2'}`}>Work Experience</h1>
+          <div className='work-experience-container'>
+            {expList}
+          </div>
         </div>
-      </div>
-      <div className={`education bg-opacity-30 ${isLightTheme? 'bg-light-body-background3' : 'bg-dark-body-background3'}`}>
-        <h1 className={`education-title ${isLightTheme? 'text-light-body-title2' : 'text-dark-body-title2'}`}>Education</h1>
-        <div className='work-experience-container'>
-          {education}
+        <div className={`education bg-opacity-30 ${isLightTheme? 'bg-light-body-background3' : 'bg-dark-body-background3'}`}>
+          <i className={`fas fa-graduation-cap text-center text-4xl ${isLightTheme ? 'text-light-body-title2' : 'text-dark-body-title2'}`}></i>
+          <h1 className={`education-title ${isLightTheme? 'text-light-body-title2' : 'text-dark-body-title2'}`}>Education</h1>
+          <div className='work-experience-container'>
+            {education}
+          </div>
         </div>
       </div>
     </div>

@@ -52,6 +52,7 @@ html, body {
     margin: 0 0;
     height: 100%;
     padding: 0 18px 18px 18px;
+    max-width: 768px;
 }
 
 .exp-list-element {
@@ -70,4 +71,44 @@ html, body {
 
 .exp-list-element-company, .exp-list-element-period {
     opacity: 0.75;
+}
+
+.work-experience-title, .education-title {
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+.fa-graduation-cap, .fa-briefcase {
+    margin-top: 8px;
+}
+
+.experiences{
+    width: 100%;
+    height: auto;
+}
+
+.bio {
+    max-width: 800px;
+}
+
+@media (min-width: 768px) {
+    .about-me {
+        flex-direction: row-reverse;
+        height: calc(100vh - 55px);
+    }
+
+    .bio-container {
+        width: 50%;
+        height: 100%;
+        padding: 0 18px 0 18px;
+    }
+
+    .experiences{
+        display: flex;
+        flex-direction: column;
+        margin: 0 0;
+        padding: 0;
+        width: 38%;
+        max-width: 480px;
+    }
 }
